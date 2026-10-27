@@ -59,7 +59,7 @@ object PrayerTimes {
     /** Indonesia: Kemenag (20°/18°, +2 menit). Negara lain: Muslim World League (18°/17°). */
     fun forPlace(c: Context, date: LocalDate): List<Prayer> {
         val id = Prefs.country(c) == "ID"
-        return forDate(date, Prefs.lat(c), Prefs.lon(c), if (id) 20.0 else 18.0, if (id) 18.0 else 17.0, if (id) 2 else 0)
+        return forDate(date, Prefs.lat(c), Prefs.lon(c), if (id) 20.0 else 18.0, if (id) 18.0 else 17.0, if (id) 0 else 0)
     }
 
     /** Waktu sholat berikutnya menurut jam acuan (bukan jam TV). */
