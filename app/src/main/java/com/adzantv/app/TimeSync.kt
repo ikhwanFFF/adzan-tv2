@@ -78,7 +78,7 @@ object Geo {
 
     fun detect(c: Context): Boolean {
         try {
-            val a = get("https://ipwho.is/)
+            val a = get("https://ipwho.is/")
             val tz = a?.optJSONObject("timezone")?.optString("id").orEmpty()
             if (a != null && a.optBoolean("success") && tz.isNotEmpty()) {
                 Prefs.save(c, a.optString("city", "Otomatis"), a.getDouble("latitude"), a.getDouble("longitude"),
@@ -88,7 +88,7 @@ object Geo {
         } catch (e: Exception) { }
         try {
             // Cadangan lewat HTTP biasa, karena HTTPS gagal bila jam TV sangat salah (sertifikat dianggap kedaluwarsa)
-            val b = get("http://ip-api.com/json/?fields=status,city,countryCode,lat,lon,timezone)
+            val b = get("http://ip-api.com/json/?fields=status,city,countryCode,lat,lon,timezone")
             if (b != null && b.optString("status") == "success") {
                 Prefs.save(c, b.optString("city", "Otomatis"), b.getDouble("lat"), b.getDouble("lon"),
                     b.getString("timezone"), b.optString("countryCode", ""), true)
