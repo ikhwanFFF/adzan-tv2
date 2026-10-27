@@ -50,7 +50,7 @@ object PrayerTimes {
             "Dzuhur" to noonUtc + ih,
             "Ashar" to noonUtc + angleTime(asrAngle) + ih,
             "Maghrib" to noonUtc + angleTime(0.833) + ih,
-            "Isya" to noonUtc + angleTime(-isha) + ih
+            "Isya" to noonUtc + angleTime(isha) + ih
         )
         val base = date.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
         return times.map { (n, h) -> Prayer(n, base + (h * 3600000.0).toLong()) }
